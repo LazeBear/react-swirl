@@ -1,0 +1,9 @@
+export declare const Wrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const Container: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const Overlay: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const NextButton: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const LastButton: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const Nav: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const ChildWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const Slide: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const Dots: import("styled-components").StyledComponent<"div", any, {}, never>;

@@ -1,0 +1,59 @@
+{
+  "name": "react-swirl",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Mason Xiong",
+  "main": "dist/index.js",
+  "module": "dist/react-swirl.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "react",
+    "carousel",
+    "react-carousel",
+    "spin",
+    "react-spin",
+    "rotate",
+    "react-rotate",
+    "slideshow",
+    "react-slideshow"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --env=jsdom",
+    "lint": "tsdx lint"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "styled-components": "^4.4.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.4",
+    "husky": "^3.1.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "tsdx": "^0.11.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.2",
+    "@types/styled-components": "^4.4.0"
+  },
+  "dependencies": {
+    "styled-components": "^4.4.1"
+  }
+}
