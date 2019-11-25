@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import ReactCyclone from '../src';
+import { ReactSwirl } from '../src';
 // import styled from 'styled-components';
 
 const images = [
@@ -23,11 +23,11 @@ const App = () => {
         height: '100vh',
       }}
     >
-      <ReactCyclone>
+      <ReactSwirl>
         {images.map((i, idx) => {
           return <img src={i} alt="image" key={idx}></img>;
         })}
-      </ReactCyclone>
+      </ReactSwirl>
     </div>
   );
 };

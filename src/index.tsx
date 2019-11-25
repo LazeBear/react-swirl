@@ -14,7 +14,7 @@ import {
   Nav,
 } from './styledComponents';
 
-const ReactCyclone = ({
+export const ReactSwirl = ({
   children,
   showDots = true,
   showNav = true,
@@ -154,5 +154,3 @@ const ReactCyclone = ({
     </Wrapper>
   );
 };
-
-export default ReactCyclone;

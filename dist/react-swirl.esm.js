@@ -223,7 +223,7 @@ styled.div(
 /*#__PURE__*/
 _templateObject10(), animation, animation);
 
-var ReactCyclone = function ReactCyclone(_ref) {
+var ReactSwirl = function ReactSwirl(_ref) {
   var children = _ref.children,
       _ref$showDots = _ref.showDots,
       showDots = _ref$showDots === void 0 ? true : _ref$showDots,
@@ -384,5 +384,5 @@ var ReactCyclone = function ReactCyclone(_ref) {
   })));
 };
 
-export default ReactCyclone;
+export { ReactSwirl };
 //# sourceMappingURL=react-swirl.esm.js.map
