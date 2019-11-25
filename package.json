@@ -2,7 +2,14 @@
   "name": "react-swirl",
   "version": "1.0.0",
   "license": "MIT",
-  "author": "Mason Xiong",
+  "author": {
+    "name": "Mason Xiong",
+    "email": "mason.xiong@yahoo.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LazeBear/react-swirl"
+  },
   "main": "dist/index.js",
   "module": "dist/react-swirl.esm.js",
   "typings": "dist/index.d.ts",
