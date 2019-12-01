@@ -90,7 +90,7 @@ function _templateObject10() {
 }
 
 function _templateObject9() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  user-select: none;\n  transition: ", ";\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  max-width: 80%;\n\n  &:hover {\n    cursor: pointer;\n  }\n  &.center {\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    z-index: 9;\n    cursor: auto;\n\n    ", " {\n      opacity: 0;\n    }\n  }\n  &.last {\n    left: 40%;\n    top: 50%;\n    transform: translate(-50%, -50%) scale(0.9);\n    z-index: 6;\n  }\n  &.next {\n    left: 60%;\n    top: 50%;\n    transform: translate(-50%, -50%) scale(0.9);\n    z-index: 6;\n  }\n  &.hidden {\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%) scale(0.8);\n    opacity: 0;\n    z-index: 3;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  user-select: none;\n  transition: ", ";\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  max-width: 75%;\n\n  &:hover {\n    cursor: pointer;\n  }\n  &.center {\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    z-index: 9;\n    cursor: auto;\n\n    ", " {\n      opacity: 0;\n    }\n  }\n  &.last {\n    left: 37.5%;\n    top: 50%;\n    transform: translate(-50%, -50%) scale(0.9);\n    z-index: 6;\n    opacity: 0.7;\n  }\n  &.next {\n    left: 62.5%;\n    top: 50%;\n    transform: translate(-50%, -50%) scale(0.9);\n    z-index: 6;\n    opacity: 0.7;\n  }\n  &.hidden {\n    left: 50%;\n    top: 50%;\n    transform: translate(-50%, -50%) scale(0.8);\n    opacity: 0;\n    z-index: 3;\n  }\n"]);
 
   _templateObject9 = function _templateObject9() {
     return data;

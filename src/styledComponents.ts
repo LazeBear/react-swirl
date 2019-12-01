@@ -93,7 +93,7 @@ export const Slide = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  max-width: 80%;
+  max-width: 75%;
 
   &:hover {
     cursor: pointer;
@@ -110,16 +110,18 @@ export const Slide = styled.div`
     }
   }
   &.last {
-    left: 40%;
+    left: 37.5%;
     top: 50%;
     transform: translate(-50%, -50%) scale(0.9);
     z-index: 6;
+    opacity: 0.7;
   }
   &.next {
-    left: 60%;
+    left: 62.5%;
     top: 50%;
     transform: translate(-50%, -50%) scale(0.9);
     z-index: 6;
+    opacity: 0.7;
   }
   &.hidden {
     left: 50%;
