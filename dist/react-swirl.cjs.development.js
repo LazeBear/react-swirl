@@ -271,7 +271,8 @@ var ReactSwirl = function ReactSwirl(_ref) {
           var grandChildren = child.children;
 
           if (grandChildren && grandChildren.length) {
-            var height = Array.from(grandChildren)[0].offsetHeight;
+            var element = Array.from(grandChildren)[0];
+            var height = element.offsetHeight;
 
             if (height > maxHeight) {
               maxHeight = height;
@@ -281,7 +282,7 @@ var ReactSwirl = function ReactSwirl(_ref) {
       }
 
       setTimeout(function () {
-        return setContentHeight(maxHeight);
+        setContentHeight(maxHeight);
       });
     }
   }, [contentHeight]);
@@ -296,13 +297,13 @@ var ReactSwirl = function ReactSwirl(_ref) {
   }
 
   var _onMouseEnter = function onMouseEnter() {
-    if (pauseOnHover) {
+    if (autoPlay && pauseOnHover) {
       stopAutoPlay();
     }
   };
 
   var _onMouseLeave = function onMouseLeave() {
-    if (pauseOnHover) {
+    if (autoPlay && pauseOnHover) {
       startAutoPlay();
     }
   };

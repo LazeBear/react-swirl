@@ -41,15 +41,17 @@ export const ReactSwirl = ({
         Array.from(children).forEach(child => {
           const grandChildren = child.children;
           if (grandChildren && grandChildren.length) {
-            const height = (Array.from(grandChildren)[0] as HTMLDivElement)
-              .offsetHeight;
+            const element = Array.from(grandChildren)[0] as HTMLDivElement;
+            const height = element.offsetHeight;
             if (height > maxHeight) {
               maxHeight = height;
             }
           }
         });
       }
-      setTimeout(() => setContentHeight(maxHeight));
+      setTimeout(() => {
+        setContentHeight(maxHeight);
+      });
     }
   }, [contentHeight]);
 
@@ -61,13 +63,13 @@ export const ReactSwirl = ({
   }
 
   const onMouseEnter = () => {
-    if (pauseOnHover) {
+    if (autoPlay && pauseOnHover) {
       stopAutoPlay();
     }
   };
 
   const onMouseLeave = () => {
-    if (pauseOnHover) {
+    if (autoPlay && pauseOnHover) {
       startAutoPlay();
     }
   };

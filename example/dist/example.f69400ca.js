@@ -39729,7 +39729,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var animation = 'all 0.6s ease-in-out';
 
-var Wrapper = _styledComponents.default.div(templateObject_1 || (templateObject_1 = (0, _tslib.__makeTemplateObject)(["\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  flex-direction: column;\n  padding: 0 20px;\n  position: relative;\n"], ["\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  flex-direction: column;\n  padding: 0 20px;\n  position: relative;\n"])));
+var Wrapper = _styledComponents.default.div(templateObject_1 || (templateObject_1 = (0, _tslib.__makeTemplateObject)(["\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  flex-direction: column;\n  padding: 0 20px;\n  position: relative;\n  box-sizing: border-box;\n"], ["\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  flex-direction: column;\n  padding: 0 20px;\n  position: relative;\n  box-sizing: border-box;\n"])));
 
 exports.Wrapper = Wrapper;
 
@@ -39770,7 +39770,7 @@ var templateObject_1, templateObject_2, templateObject_3, templateObject_4, temp
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.ReactSwirl = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -39784,7 +39784,7 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-var ReactCyclone = function ReactCyclone(_a) {
+var ReactSwirl = function ReactSwirl(_a) {
   var children = _a.children,
       _b = _a.showDots,
       showDots = _b === void 0 ? true : _b,
@@ -39827,7 +39827,8 @@ var ReactCyclone = function ReactCyclone(_a) {
           var grandChildren = child.children;
 
           if (grandChildren && grandChildren.length) {
-            var height = Array.from(grandChildren)[0].offsetHeight;
+            var element = Array.from(grandChildren)[0];
+            var height = element.offsetHeight;
 
             if (height > maxHeight) {
               maxHeight = height;
@@ -39837,7 +39838,7 @@ var ReactCyclone = function ReactCyclone(_a) {
       }
 
       setTimeout(function () {
-        return setContentHeight(maxHeight);
+        setContentHeight(maxHeight);
       });
     }
   }, [contentHeight]);
@@ -39852,13 +39853,13 @@ var ReactCyclone = function ReactCyclone(_a) {
   }
 
   var _onMouseEnter = function onMouseEnter() {
-    if (pauseOnHover) {
+    if (autoPlay && pauseOnHover) {
       stopAutoPlay();
     }
   };
 
   var _onMouseLeave = function onMouseLeave() {
-    if (pauseOnHover) {
+    if (autoPlay && pauseOnHover) {
       startAutoPlay();
     }
   };
@@ -39945,8 +39946,7 @@ var ReactCyclone = function ReactCyclone(_a) {
   })));
 };
 
-var _default = ReactCyclone;
-exports.default = _default;
+exports.ReactSwirl = ReactSwirl;
 },{"react":"../node_modules/react/index.js","./interface":"../src/interface.ts","./helper":"../src/helper.ts","./styledComponents":"../src/styledComponents.ts"}],"index.tsx":[function(require,module,exports) {
 "use strict";
 
@@ -39960,12 +39960,6 @@ var __importStar = this && this.__importStar || function (mod) {
   return result;
 };
 
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -39976,7 +39970,7 @@ var React = __importStar(require("react"));
 
 var ReactDOM = __importStar(require("react-dom"));
 
-var src_1 = __importDefault(require("../src"));
+var src_1 = require("../src");
 
 var images = ['https://images.unsplash.com/photo-1572005241776-980772977b0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80', 'https://images.unsplash.com/photo-1572889834817-10568c34a399?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80', 'https://images.unsplash.com/photo-1571627912808-5183884c6b8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80', 'https://images.unsplash.com/photo-1574572383277-0e42906ee073?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80', 'https://images.unsplash.com/photo-1574463738523-28c65be8b7b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80', 'https://images.unsplash.com/photo-1574540382124-1f4b5d503c41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80'];
 
@@ -39988,7 +39982,9 @@ var App = function App() {
       alignItems: 'center',
       height: '100vh'
     }
-  }, React.createElement(src_1.default, null, images.map(function (i, idx) {
+  }, React.createElement(src_1.ReactSwirl, {
+    autoPlay: false
+  }, images.map(function (i, idx) {
     return React.createElement("img", {
       src: i,
       alt: "image",
@@ -40026,7 +40022,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52132" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49434" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
