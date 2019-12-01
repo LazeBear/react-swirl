@@ -5,6 +5,11 @@ export enum Order {
   HIDDEN = 'hidden',
 }
 
+export enum Theme {
+  DARK = 'dark',
+  LIGHT = 'light',
+}
+
 export interface DisplayElement {
   child: any;
   order: Order;
@@ -18,4 +23,5 @@ export interface ComponentSettings {
   playSpeed?: number;
   pauseOnHover?: boolean;
   children: any[];
+  theme?: Theme;
 }

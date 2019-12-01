@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 const animation = 'all 0.6s ease-in-out';
+const lightColor = 'rgba(255, 255, 255, 0.5)';
+const lightColorHover = 'rgba(255, 255, 255, 0.8)';
+const darkColor = 'rgba(0, 0, 0, 0.5)';
+const darkColorHover = 'rgba(0, 0, 0, 0.8)';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -44,7 +48,7 @@ const ControlButton = styled.div`
   transition: ${animation};
 
   span {
-    border: solid rgba(0, 0, 0, 0.5);
+    border: solid ${props => (props.theme === 'dark' ? darkColor : lightColor)};
     border-width: 0 4px 4px 0;
     display: inline-block;
     padding: 4px;
@@ -53,7 +57,8 @@ const ControlButton = styled.div`
 
   &:hover {
     span {
-      border-color: rgba(0, 0, 0, 0.8);
+      border-color: ${props =>
+        props.theme === 'dark' ? darkColorHover : lightColorHover};
     }
     transform: translate(0, -50%) scale(1.1);
   }
@@ -143,7 +148,8 @@ export const Dots = styled.div`
     &.active {
       padding: 0;
       span {
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: ${props =>
+          props.theme === 'dark' ? darkColorHover : lightColorHover};
         width: 16px;
       }
     }
@@ -153,7 +159,8 @@ export const Dots = styled.div`
     width: 8px;
     height: 8px;
     border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: ${props =>
+      props.theme === 'dark' ? darkColor : lightColor};
     transition: ${animation};
     vertical-align: middle;
   }

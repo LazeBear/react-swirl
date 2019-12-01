@@ -10,6 +10,13 @@ var Order;
   Order["HIDDEN"] = "hidden";
 })(Order || (Order = {}));
 
+var Theme;
+
+(function (Theme) {
+  Theme["DARK"] = "dark";
+  Theme["LIGHT"] = "light";
+})(Theme || (Theme = {}));
+
 function generateOrderArray(arr) {
   return arr.map(function (_i, idx) {
     var order;
@@ -73,7 +80,7 @@ function _taggedTemplateLiteralLoose(strings, raw) {
 }
 
 function _templateObject10() {
-  var data = _taggedTemplateLiteralLoose(["\n  z-index: 9;\n  margin-top: 5px;\n  user-select: none;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n  div {\n    transition: ", ";\n    padding: 0 8px;\n    &:hover {\n      cursor: pointer;\n    }\n\n    &.active {\n      padding: 0;\n      span {\n        background-color: rgba(0, 0, 0, 0.8);\n        width: 16px;\n      }\n    }\n  }\n  span {\n    display: inline-block;\n    width: 8px;\n    height: 8px;\n    border-radius: 8px;\n    background-color: rgba(0, 0, 0, 0.5);\n    transition: ", ";\n    vertical-align: middle;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  z-index: 9;\n  margin-top: 5px;\n  user-select: none;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n  div {\n    transition: ", ";\n    padding: 0 8px;\n    &:hover {\n      cursor: pointer;\n    }\n\n    &.active {\n      padding: 0;\n      span {\n        background-color: ", ";\n        width: 16px;\n      }\n    }\n  }\n  span {\n    display: inline-block;\n    width: 8px;\n    height: 8px;\n    border-radius: 8px;\n    background-color: ", ";\n    transition: ", ";\n    vertical-align: middle;\n  }\n"]);
 
   _templateObject10 = function _templateObject10() {
     return data;
@@ -133,7 +140,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteralLoose(["\n  z-index: 9;\n  position: absolute;\n  top: 50%;\n  transform: translate(0, -50%);\n  cursor: pointer;\n  text-align: center;\n  width: 16px;\n  transition: ", ";\n\n  span {\n    border: solid rgba(0, 0, 0, 0.5);\n    border-width: 0 4px 4px 0;\n    display: inline-block;\n    padding: 4px;\n    transition: ", ";\n  }\n\n  &:hover {\n    span {\n      border-color: rgba(0, 0, 0, 0.8);\n    }\n    transform: translate(0, -50%) scale(1.1);\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  z-index: 9;\n  position: absolute;\n  top: 50%;\n  transform: translate(0, -50%);\n  cursor: pointer;\n  text-align: center;\n  width: 16px;\n  transition: ", ";\n\n  span {\n    border: solid ", ";\n    border-width: 0 4px 4px 0;\n    display: inline-block;\n    padding: 4px;\n    transition: ", ";\n  }\n\n  &:hover {\n    span {\n      border-color: ", ";\n    }\n    transform: translate(0, -50%) scale(1.1);\n  }\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -172,6 +179,10 @@ function _templateObject() {
   return data;
 }
 var animation = 'all 0.6s ease-in-out';
+var lightColor = 'rgba(255, 255, 255, 0.5)';
+var lightColorHover = 'rgba(255, 255, 255, 0.8)';
+var darkColor = 'rgba(0, 0, 0, 0.5)';
+var darkColorHover = 'rgba(0, 0, 0, 0.8)';
 var Wrapper =
 /*#__PURE__*/
 styled.div(
@@ -191,7 +202,11 @@ var ControlButton =
 /*#__PURE__*/
 styled.div(
 /*#__PURE__*/
-_templateObject4(), animation, animation);
+_templateObject4(), animation, function (props) {
+  return props.theme === 'dark' ? darkColor : lightColor;
+}, animation, function (props) {
+  return props.theme === 'dark' ? darkColorHover : lightColorHover;
+});
 var NextButton =
 /*#__PURE__*/
 styled(ControlButton)(
@@ -221,7 +236,11 @@ var Dots =
 /*#__PURE__*/
 styled.div(
 /*#__PURE__*/
-_templateObject10(), animation, animation);
+_templateObject10(), animation, function (props) {
+  return props.theme === 'dark' ? darkColorHover : lightColorHover;
+}, function (props) {
+  return props.theme === 'dark' ? darkColor : lightColor;
+}, animation);
 
 var ReactSwirl = function ReactSwirl(_ref) {
   var children = _ref.children,
@@ -234,7 +253,9 @@ var ReactSwirl = function ReactSwirl(_ref) {
       _ref$pauseOnHover = _ref.pauseOnHover,
       pauseOnHover = _ref$pauseOnHover === void 0 ? true : _ref$pauseOnHover,
       _ref$playSpeed = _ref.playSpeed,
-      playSpeed = _ref$playSpeed === void 0 ? 5000 : _ref$playSpeed;
+      playSpeed = _ref$playSpeed === void 0 ? 5000 : _ref$playSpeed,
+      _ref$theme = _ref.theme,
+      theme = _ref$theme === void 0 ? Theme.DARK : _ref$theme;
   var initialOrderArray = generateOrderArray(children);
 
   var _useState = useState(0),
@@ -367,12 +388,16 @@ var ReactSwirl = function ReactSwirl(_ref) {
   })), showNav && React.createElement(Nav, null, React.createElement(LastButton, {
     onClick: function onClick() {
       return slideToLast();
-    }
+    },
+    theme: theme
   }, React.createElement("span", null)), React.createElement(NextButton, {
     onClick: function onClick() {
       return slideToNext();
-    }
-  }, React.createElement("span", null))), showDots && React.createElement(Dots, null, displayArray.map(function (_ref2) {
+    },
+    theme: theme
+  }, React.createElement("span", null))), showDots && React.createElement(Dots, {
+    theme: theme
+  }, displayArray.map(function (_ref2) {
     var index = _ref2.index,
         order = _ref2.order;
     return React.createElement("div", {

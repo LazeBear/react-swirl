@@ -35096,7 +35096,7 @@ if ("development" === 'production') {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Order = void 0;
+exports.Theme = exports.Order = void 0;
 var Order;
 exports.Order = Order;
 
@@ -35106,6 +35106,14 @@ exports.Order = Order;
   Order["LAST"] = "last";
   Order["HIDDEN"] = "hidden";
 })(Order || (exports.Order = Order = {}));
+
+var Theme;
+exports.Theme = Theme;
+
+(function (Theme) {
+  Theme["DARK"] = "dark";
+  Theme["LIGHT"] = "light";
+})(Theme || (exports.Theme = Theme = {}));
 },{}],"../node_modules/tslib/tslib.es6.js":[function(require,module,exports) {
 "use strict";
 
@@ -39728,6 +39736,10 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var animation = 'all 0.6s ease-in-out';
+var lightColor = 'rgba(255, 255, 255, 0.5)';
+var lightColorHover = 'rgba(255, 255, 255, 0.8)';
+var darkColor = 'rgba(0, 0, 0, 0.5)';
+var darkColorHover = 'rgba(0, 0, 0, 0.8)';
 
 var Wrapper = _styledComponents.default.div(templateObject_1 || (templateObject_1 = (0, _tslib.__makeTemplateObject)(["\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  flex-direction: column;\n  padding: 0 20px;\n  position: relative;\n  box-sizing: border-box;\n"], ["\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n  flex-direction: column;\n  padding: 0 20px;\n  position: relative;\n  box-sizing: border-box;\n"])));
 
@@ -39741,7 +39753,11 @@ var Overlay = _styledComponents.default.div(templateObject_3 || (templateObject_
 
 exports.Overlay = Overlay;
 
-var ControlButton = _styledComponents.default.div(templateObject_4 || (templateObject_4 = (0, _tslib.__makeTemplateObject)(["\n  z-index: 9;\n  position: absolute;\n  top: 50%;\n  transform: translate(0, -50%);\n  cursor: pointer;\n  text-align: center;\n  width: 16px;\n  transition: ", ";\n\n  span {\n    border: solid rgba(0, 0, 0, 0.5);\n    border-width: 0 4px 4px 0;\n    display: inline-block;\n    padding: 4px;\n    transition: ", ";\n  }\n\n  &:hover {\n    span {\n      border-color: rgba(0, 0, 0, 0.8);\n    }\n    transform: translate(0, -50%) scale(1.1);\n  }\n"], ["\n  z-index: 9;\n  position: absolute;\n  top: 50%;\n  transform: translate(0, -50%);\n  cursor: pointer;\n  text-align: center;\n  width: 16px;\n  transition: ", ";\n\n  span {\n    border: solid rgba(0, 0, 0, 0.5);\n    border-width: 0 4px 4px 0;\n    display: inline-block;\n    padding: 4px;\n    transition: ", ";\n  }\n\n  &:hover {\n    span {\n      border-color: rgba(0, 0, 0, 0.8);\n    }\n    transform: translate(0, -50%) scale(1.1);\n  }\n"])), animation, animation);
+var ControlButton = _styledComponents.default.div(templateObject_4 || (templateObject_4 = (0, _tslib.__makeTemplateObject)(["\n  z-index: 9;\n  position: absolute;\n  top: 50%;\n  transform: translate(0, -50%);\n  cursor: pointer;\n  text-align: center;\n  width: 16px;\n  transition: ", ";\n\n  span {\n    border: solid ", ";\n    border-width: 0 4px 4px 0;\n    display: inline-block;\n    padding: 4px;\n    transition: ", ";\n  }\n\n  &:hover {\n    span {\n      border-color: ", ";\n    }\n    transform: translate(0, -50%) scale(1.1);\n  }\n"], ["\n  z-index: 9;\n  position: absolute;\n  top: 50%;\n  transform: translate(0, -50%);\n  cursor: pointer;\n  text-align: center;\n  width: 16px;\n  transition: ", ";\n\n  span {\n    border: solid ", ";\n    border-width: 0 4px 4px 0;\n    display: inline-block;\n    padding: 4px;\n    transition: ", ";\n  }\n\n  &:hover {\n    span {\n      border-color: ", ";\n    }\n    transform: translate(0, -50%) scale(1.1);\n  }\n"])), animation, function (props) {
+  return props.theme === 'dark' ? darkColor : lightColor;
+}, animation, function (props) {
+  return props.theme === 'dark' ? darkColorHover : lightColorHover;
+});
 
 var NextButton = (0, _styledComponents.default)(ControlButton)(templateObject_5 || (templateObject_5 = (0, _tslib.__makeTemplateObject)(["\n  right: 4px;\n  span {\n    transform: rotate(-45deg);\n  }\n"], ["\n  right: 4px;\n  span {\n    transform: rotate(-45deg);\n  }\n"])));
 exports.NextButton = NextButton;
@@ -39752,7 +39768,7 @@ var Nav = _styledComponents.default.div(templateObject_7 || (templateObject_7 = 
 
 exports.Nav = Nav;
 
-var ChildWrapper = _styledComponents.default.div(templateObject_8 || (templateObject_8 = (0, _tslib.__makeTemplateObject)([""], [""])));
+var ChildWrapper = _styledComponents.default.div(templateObject_8 || (templateObject_8 = (0, _tslib.__makeTemplateObject)(["\n  width: 100%;\n  height: 100%;\n"], ["\n  width: 100%;\n  height: 100%;\n"])));
 
 exports.ChildWrapper = ChildWrapper;
 
@@ -39760,7 +39776,11 @@ var Slide = _styledComponents.default.div(templateObject_9 || (templateObject_9 
 
 exports.Slide = Slide;
 
-var Dots = _styledComponents.default.div(templateObject_10 || (templateObject_10 = (0, _tslib.__makeTemplateObject)(["\n  z-index: 9;\n  margin-top: 5px;\n  user-select: none;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n  div {\n    transition: ", ";\n    padding: 0 8px;\n    &:hover {\n      cursor: pointer;\n    }\n\n    &.active {\n      padding: 0;\n      span {\n        background-color: rgba(0, 0, 0, 0.8);\n        width: 16px;\n      }\n    }\n  }\n  span {\n    display: inline-block;\n    width: 8px;\n    height: 8px;\n    border-radius: 8px;\n    background-color: rgba(0, 0, 0, 0.5);\n    transition: ", ";\n    vertical-align: middle;\n  }\n"], ["\n  z-index: 9;\n  margin-top: 5px;\n  user-select: none;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n  div {\n    transition: ", ";\n    padding: 0 8px;\n    &:hover {\n      cursor: pointer;\n    }\n\n    &.active {\n      padding: 0;\n      span {\n        background-color: rgba(0, 0, 0, 0.8);\n        width: 16px;\n      }\n    }\n  }\n  span {\n    display: inline-block;\n    width: 8px;\n    height: 8px;\n    border-radius: 8px;\n    background-color: rgba(0, 0, 0, 0.5);\n    transition: ", ";\n    vertical-align: middle;\n  }\n"])), animation, animation);
+var Dots = _styledComponents.default.div(templateObject_10 || (templateObject_10 = (0, _tslib.__makeTemplateObject)(["\n  z-index: 9;\n  margin-top: 5px;\n  user-select: none;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n  div {\n    transition: ", ";\n    padding: 0 8px;\n    &:hover {\n      cursor: pointer;\n    }\n\n    &.active {\n      padding: 0;\n      span {\n        background-color: ", ";\n        width: 16px;\n      }\n    }\n  }\n  span {\n    display: inline-block;\n    width: 8px;\n    height: 8px;\n    border-radius: 8px;\n    background-color: ", ";\n    transition: ", ";\n    vertical-align: middle;\n  }\n"], ["\n  z-index: 9;\n  margin-top: 5px;\n  user-select: none;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-wrap: wrap;\n  div {\n    transition: ", ";\n    padding: 0 8px;\n    &:hover {\n      cursor: pointer;\n    }\n\n    &.active {\n      padding: 0;\n      span {\n        background-color: ", ";\n        width: 16px;\n      }\n    }\n  }\n  span {\n    display: inline-block;\n    width: 8px;\n    height: 8px;\n    border-radius: 8px;\n    background-color: ", ";\n    transition: ", ";\n    vertical-align: middle;\n  }\n"])), animation, function (props) {
+  return props.theme === 'dark' ? darkColorHover : lightColorHover;
+}, function (props) {
+  return props.theme === 'dark' ? darkColor : lightColor;
+}, animation);
 
 exports.Dots = Dots;
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10;
@@ -39795,24 +39815,26 @@ var ReactSwirl = function ReactSwirl(_a) {
       _e = _a.pauseOnHover,
       pauseOnHover = _e === void 0 ? true : _e,
       _f = _a.playSpeed,
-      playSpeed = _f === void 0 ? 5000 : _f;
+      playSpeed = _f === void 0 ? 5000 : _f,
+      _g = _a.theme,
+      theme = _g === void 0 ? _interface.Theme.DARK : _g;
   var initialOrderArray = (0, _helper.generateOrderArray)(children);
 
-  var _g = (0, _react.useState)(0),
-      contentHeight = _g[0],
-      setContentHeight = _g[1];
-
   var _h = (0, _react.useState)(0),
-      current = _h[0],
-      setCurrent = _h[1];
+      contentHeight = _h[0],
+      setContentHeight = _h[1];
 
-  var _j = (0, _react.useState)(initialOrderArray),
-      orderArray = _j[0],
-      setOrderArray = _j[1];
+  var _j = (0, _react.useState)(0),
+      current = _j[0],
+      setCurrent = _j[1];
 
-  var _k = (0, _react.useState)((0, _helper.reallocateOrder)(children, orderArray)),
-      displayArray = _k[0],
-      setDisplayArray = _k[1];
+  var _k = (0, _react.useState)(initialOrderArray),
+      orderArray = _k[0],
+      setOrderArray = _k[1];
+
+  var _l = (0, _react.useState)((0, _helper.reallocateOrder)(children, orderArray)),
+      displayArray = _l[0],
+      setDisplayArray = _l[1];
 
   var targetRef = (0, _react.useRef)();
   var autoPlayInterval;
@@ -39928,12 +39950,16 @@ var ReactSwirl = function ReactSwirl(_a) {
   })), showNav && _react.default.createElement(_styledComponents.Nav, null, _react.default.createElement(_styledComponents.LastButton, {
     onClick: function onClick() {
       return slideToLast();
-    }
+    },
+    theme: theme
   }, _react.default.createElement("span", null)), _react.default.createElement(_styledComponents.NextButton, {
     onClick: function onClick() {
       return slideToNext();
-    }
-  }, _react.default.createElement("span", null))), showDots && _react.default.createElement(_styledComponents.Dots, null, displayArray.map(function (_a) {
+    },
+    theme: theme
+  }, _react.default.createElement("span", null))), showDots && _react.default.createElement(_styledComponents.Dots, {
+    theme: theme
+  }, displayArray.map(function (_a) {
     var index = _a.index,
         order = _a.order;
     return _react.default.createElement("div", {
@@ -39972,6 +39998,8 @@ var ReactDOM = __importStar(require("react-dom"));
 
 var src_1 = require("../src");
 
+var interface_1 = require("../src/interface");
+
 var images = ['https://images.unsplash.com/photo-1572005241776-980772977b0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80', 'https://images.unsplash.com/photo-1572889834817-10568c34a399?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80', 'https://images.unsplash.com/photo-1571627912808-5183884c6b8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80', 'https://images.unsplash.com/photo-1574572383277-0e42906ee073?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80', 'https://images.unsplash.com/photo-1574463738523-28c65be8b7b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80', 'https://images.unsplash.com/photo-1574540382124-1f4b5d503c41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80'];
 
 var App = function App() {
@@ -39980,10 +40008,11 @@ var App = function App() {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '100vh'
+      height: '100vh',
+      background: 'black'
     }
   }, React.createElement(src_1.ReactSwirl, {
-    autoPlay: false
+    theme: interface_1.Theme.LIGHT
   }, images.map(function (i, idx) {
     return React.createElement("img", {
       src: i,
@@ -39994,7 +40023,7 @@ var App = function App() {
 };
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
-},{"react-app-polyfill/ie11":"node_modules/react-app-polyfill/ie11.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/profiling.js","../src":"../src/index.tsx"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react-app-polyfill/ie11":"node_modules/react-app-polyfill/ie11.js","react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/profiling.js","../src":"../src/index.tsx","../src/interface":"../src/interface.ts"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -40022,7 +40051,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49434" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54874" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

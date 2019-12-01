@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-import { Order, DisplayElement, ComponentSettings } from './interface';
+import { Order, DisplayElement, ComponentSettings, Theme } from './interface';
 import { generateOrderArray, reallocateOrder, rotate } from './helper';
 import {
   Wrapper,
@@ -21,6 +21,7 @@ export const ReactSwirl = ({
   autoPlay = true,
   pauseOnHover = true,
   playSpeed = 5000,
+  theme = Theme.DARK,
 }: ComponentSettings) => {
   const initialOrderArray = generateOrderArray(children);
   const [contentHeight, setContentHeight] = useState(0);
@@ -129,17 +130,17 @@ export const ReactSwirl = ({
       </Container>
       {showNav && (
         <Nav>
-          <LastButton onClick={() => slideToLast()}>
+          <LastButton onClick={() => slideToLast()} theme={theme}>
             <span></span>
           </LastButton>
-          <NextButton onClick={() => slideToNext()}>
+          <NextButton onClick={() => slideToNext()} theme={theme}>
             <span></span>
           </NextButton>
         </Nav>
       )}
 
       {showDots && (
-        <Dots>
+        <Dots theme={theme}>
           {displayArray.map(({ index, order }: DisplayElement) => {
             return (
               <div

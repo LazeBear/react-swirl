@@ -2,6 +2,7 @@ import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { ReactSwirl } from '../src';
+import { Theme } from '../src/interface';
 // import styled from 'styled-components';
 
 const images = [
@@ -21,9 +22,10 @@ const App = () => {
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
+        background: 'black',
       }}
     >
-      <ReactSwirl>
+      <ReactSwirl theme={Theme.LIGHT}>
         {images.map((i, idx) => {
           return <img src={i} alt="image" key={idx}></img>;
         })}
