@@ -98,7 +98,7 @@ function _templateObject9() {
 }
 
 function _templateObject8() {
-  var data = _taggedTemplateLiteralLoose([""]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n"]);
 
   _templateObject8 = function _templateObject8() {
     return data;

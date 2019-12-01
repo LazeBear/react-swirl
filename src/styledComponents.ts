@@ -75,7 +75,10 @@ export const LastButton = styled(ControlButton)`
 
 export const Nav = styled.div``;
 
-export const ChildWrapper = styled.div``;
+export const ChildWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 
 export const Slide = styled.div`
   position: absolute;
